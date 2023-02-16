@@ -30,7 +30,8 @@
               "projects/angular-basics/src/assets"
             ],
             "styles": [
-              "projects/angular-basics/src/styles.scss"
+              "projects/angular-basics/src/styles.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": []
           },

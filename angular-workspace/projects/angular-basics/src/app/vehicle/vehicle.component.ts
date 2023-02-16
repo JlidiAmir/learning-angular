@@ -10,16 +10,22 @@ import {DummyData} from "./DummyData"
 export class VehicleComponent {
 
 public numberOfVehicles: number = 0;  
-public vehicles : Array<Vehicle> = DummyData;
+public vehiclesList : Array<Vehicle> = new Array<Vehicle>();
 
 
 public constructor(){
 }
 
+// angular lifecycle hooks
+ngOnInit(): any 
+{
+ this.vehiclesList = DummyData;
+}
+
 public addVehicle(): void
 {
   this.numberOfVehicles+= 1;
-  this.vehicles[this.numberOfVehicles]={
+  this.vehiclesList[this.numberOfVehicles]={
     id: 515 ,
     brand: "BMW", 
     model: "M5",
@@ -61,23 +67,5 @@ public addVehicle(): void
 
 
 
-// Pre Interfaces Component
-// private vehicleName : string = "bmw"; 
-// public numberOfVehicles : number = 10;
-// public modelNumber : string = "555F-14X2-3246"
-// private toggleFlag : boolean = true ; 
-//  public getVehicleName() : string
-//  {
-//   return this.vehicleName;
-//  }
-//  public getToggleState(): boolean
-//  {
-//   return this.toggleFlag; 
-//  }
-//  public switchToggleState():void
-//  {
-//    this.toggleFlag = !this.toggleFlag ; 
-  
-//  }
 
 }

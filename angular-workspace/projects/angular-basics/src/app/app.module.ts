@@ -4,11 +4,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { VehicleComponent } from './vehicle/vehicle.component';
+import { VehiclesListComponent } from './vehicles-list/vehicles-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    VehicleComponent
+    VehicleComponent,
+    VehiclesListComponent
   ],
   imports: [
     BrowserModule,
