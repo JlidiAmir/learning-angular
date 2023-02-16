@@ -1,0 +1,68 @@
+<!-- Text interpolation -->
+<!-- <p>my car's name is : {{ getVehicleName() }}</p> -->
+<!-- Property binding -->
+<!-- <div [hidden]="getToggleState()">
+  Number of vehicles :
+  <div [innerText]="numberOfVehicles"></div>
+</div> -->
+<!-- event binding  -->
+<!-- <button (click)="switchToggleState()">
+  {{ getToggleState() ? "Show vehicle details" : "Hide vehicle details" }}
+</button> -->
+<!-- directives -->
+<!-- <div *ngIf="vehicle.numberOfVehicles > 0">Vehicle List ...</div> -->
+<!-- coalescing operator-->
+<!-- {{ vehicle.numberOfVehicles ?? "Show vehicle details" }} -->
+<!-- chain operation -->
+<!-- <div *ngIf="true">
+  {{ vehicles[0]?.generation == undefined }} vehicle List ...
+</div> -->
+
+<!-- ngIf and ngFor and ngSwitch(in app component) Structural directives -->
+<!-- ngClass and ngStyle   Attribute directives  -->
+<!-- <div>
+  <div
+    *ngIf="this.numberOfVehicles == 0"
+    [ngStyle]="{ 'background-color': 'white' }"
+  >
+    <div
+      [ngClass]="e ? 'even' : 'odd'"
+      *ngFor="let vehicle of vehicles; let e = even; let o = odd; let i = index"
+    >
+      {{ this.vehicle.brand }}
+      {{ e ? "" : "odd" }}
+      {{ o ? "" : "even"  }}
+      {{ i }}
+    </div>
+  </div>
+  <button (click)="this.addVehicle()">Toggle list</button>
+  {{ this.numberOfVehicles }}
+</div> -->
+
+<!-- Different angular pipe  -->
+<!-- <div
+  [ngClass]="e ? 'even' : 'odd'"
+  *ngFor="
+    let vehicle of vehicles | slice : 0 : 3;
+    let e = even;
+    let o = odd;
+    let i = index
+  "
+>
+  {{ this.vehicle.brand | titlecase }}
+  ||
+  {{ this.vehicle.model | lowercase }}
+  {{ e ? "" : "odd" }}
+  {{ o ? "" : "even" }}
+  ||
+  {{ i | currency }}
+  ||
+  {{ i | percent }}
+  ||
+  {{ 4.123456789 | number : "1.0-5" }}
+  ||
+  {{ 4123456789 | number : "1.0-5" : "en-US" }}
+</div> -->
+<!-- <div>
+  {{ this.vehicles | json }}
+</div> -->
