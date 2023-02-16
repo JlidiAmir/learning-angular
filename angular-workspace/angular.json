@@ -12,7 +12,7 @@
       },
       "root": "projects/angular-basics",
       "sourceRoot": "projects/angular-basics/src",
-      "prefix": "app",
+      "prefix": "lca",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
