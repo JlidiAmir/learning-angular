@@ -10,24 +10,27 @@ import { Vehicle } from '../vehicle/Vehicle';
 export class VehiclesListComponent {
 
 // Component Communication @Input @Output parent child relation
-  @Input() vehiclesList : Array<Vehicle> = new Array<Vehicle>();
-  @Input() title : string = "";
-  @Output() selectedVehicle : EventEmitter<Vehicle> = new EventEmitter<Vehicle>();
+  @Input() 
+  public vehiclesList : Array<Vehicle> = new Array<Vehicle>();
+  @Input() 
+  public title : string = "";
+  @Output() 
+  public selectedVehicle : EventEmitter<Vehicle> = new EventEmitter<Vehicle>();
 
 // angular OnChange lifecycle hooks 
-public ngOnChanges(changes: SimpleChanges):void{
+// public ngOnChanges(changes: SimpleChanges):void{
 //  console.log(changes);
 //  if (changes["vehiclesList"]) {
 //        console.log(changes["vehiclesList"]);
          
 //  }
-}
+// }
 
 // angular  DoCheck lifecycle hook
-public ngDoCheck():void{
-        // console.log("onchange event has been called");
+// public ngDoCheck():void{
+//         console.log("onchange event has been called");
         
-}
+// }
 
   selectVehicle(vehicle : Vehicle){
     console.log(this.vehiclesList);

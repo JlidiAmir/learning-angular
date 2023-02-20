@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { Vehicle } from './Vehicle';
 import {DummyData} from "./DummyData"
 import { HeaderComponent } from '../header/header.component';
@@ -13,19 +13,42 @@ export class VehicleComponent {
 public numberOfVehicles: number = 3;  
 public vehiclesList : Array<Vehicle> = new Array<Vehicle>();
 public selectedVehicle!: Vehicle; 
-@ViewChild(HeaderComponent) headerComponent!: HeaderComponent ; 
+// static property makes the component available in the parent component OnInit lifecycle hook must be used
+// carfulley because if the child component contains asynchronous code then the parent component will
+// get stuck
+// ViewChild component communication 
+// @ViewChild(HeaderComponent, {static:true}) headerComponent!: HeaderComponent ; 
+
+@ViewChild(HeaderComponent)
+public headerComponent!: HeaderComponent ; 
+
+@ViewChildren(HeaderComponent)
+public headerComponentList!: QueryList<HeaderComponent>; 
 
 
 public constructor(){
 }
 
-// angular lifecycle hooks OnInit
+// angular OnInit lifecycle hooks
 public ngOnInit(): void
 {
-  console.log(this.headerComponent);
+  // checking the static = false property on the ViewChild decorator
+  // console.log(this.headerComponent);
  this.vehiclesList = DummyData;
 }
+//angular AfterViewInit lifecycle hook
+public ngAfterViewInit(){
+this.headerComponent.title = "Header Title";
+this.headerComponentList.last.title = "last header"
+this.headerComponentList.forEach((item)=>item.title="header");
 
+}
+//angular AfterViewChecked lifecycle hook
+public ngAfterViewChecked(){
+  this.headerComponent.title = "first header";
+
+     
+}
 
 public setSelectedVehicle(vehicle : Vehicle):void{
     this.selectedVehicle=vehicle;   

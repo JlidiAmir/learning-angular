@@ -6,9 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-public title : string = "header component";
+public title : string = "";
 
 constructor(){
-  
+
 }
 }
