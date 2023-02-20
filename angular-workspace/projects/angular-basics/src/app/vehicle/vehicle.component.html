@@ -66,6 +66,19 @@
 <!-- <div>
   {{ this.vehicles | json }}
 </div> -->
-
+<!-- header component -->
+<lca-header></lca-header>
 <!-- Component communication @Input decorator -->
-<lca-vehicles-list [vehiclesList]="vehiclesList"></lca-vehicles-list>
+<div>
+  <button class="btn btn-primary" (click)="this.addVehicle()">
+    Add vehicle
+  </button>
+</div>
+<lca-vehicles-list
+  [vehiclesList]="vehiclesList"
+  [title]="'hello'"
+  (selectedVehicle)="setSelectedVehicle($event)"
+></lca-vehicles-list>
+<div *ngIf="this.selectedVehicle">
+  {{ this.selectedVehicle | json }}
+</div>

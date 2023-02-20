@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Vehicle } from './Vehicle';
 import {DummyData} from "./DummyData"
+import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'lca-vehicle',
@@ -9,23 +10,32 @@ import {DummyData} from "./DummyData"
 })
 export class VehicleComponent {
 
-public numberOfVehicles: number = 0;  
+public numberOfVehicles: number = 3;  
 public vehiclesList : Array<Vehicle> = new Array<Vehicle>();
+public selectedVehicle!: Vehicle; 
+@ViewChild(HeaderComponent) headerComponent!: HeaderComponent ; 
 
 
 public constructor(){
 }
 
-// angular lifecycle hooks
-ngOnInit(): any 
+// angular lifecycle hooks OnInit
+public ngOnInit(): void
 {
+  console.log(this.headerComponent);
  this.vehiclesList = DummyData;
 }
+
+
+public setSelectedVehicle(vehicle : Vehicle):void{
+    this.selectedVehicle=vehicle;   
+}
+
 
 public addVehicle(): void
 {
   this.numberOfVehicles+= 1;
-  this.vehiclesList[this.numberOfVehicles]={
+  const bmwVehicle: Vehicle = {
     id: 515 ,
     brand: "BMW", 
     model: "M5",
@@ -62,7 +72,10 @@ public addVehicle(): void
     exteriorEquipments: [],
     functionalEquipments: [],
     securityEquipments: [],
-  }
+  };
+  this.vehiclesList = new Array<Vehicle>(...this.vehiclesList, bmwVehicle)
+  
+  
 }
 
 
