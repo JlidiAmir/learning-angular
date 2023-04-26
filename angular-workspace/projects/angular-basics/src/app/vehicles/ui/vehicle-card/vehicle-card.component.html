@@ -1,0 +1,14 @@
+<!-- Different angular pipe  -->
+<div>
+  {{ this.vehicle.brand | titlecase }}
+  ||
+  {{ this.vehicle.model | lowercase }}
+  ||
+  {{ 4.123456789 | number : "1.0-5" }}
+  ||
+  {{ 4123456789 | number : "1.0-5" : "en-US" }}
+  ||
+  <button class="btn btn-primary" (click)="consultVehicleDetails(vehicle)">
+    Voir Detailes
+  </button>
+</div>

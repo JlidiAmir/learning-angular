@@ -1,22 +1,55 @@
-<div
-  [ngClass]="e ? 'even' : 'odd'"
-  *ngFor="let vehicle of vehiclesList; let e = even; let o = odd; let i = index"
->
-  {{ this.vehicle.brand | titlecase }}
-  ||
-  {{ this.vehicle.model | lowercase }}
-  {{ e ? "" : "odd" }}
-  {{ o ? "" : "even" }}
-  ||
-  {{ i | currency }}
-  ||
-  {{ i | percent }}
-  ||
-  {{ 4.123456789 | number : "1.0-5" }}
-  ||
-  {{ 4123456789 | number : "1.0-5" : "en-US" }}
-  ||
-  <button class="btn btn-primary" (click)="selectVehicle(vehicle)">
-    Select vehicle
+<!-- Text interpolation -->
+<!-- <p>my car's name is : {{ getVehicleName() }}</p> -->
+
+<!-- Property binding -->
+<!-- <div [hidden]="getToggleState()">
+  Number of vehicles :
+  <div [innerText]="numberOfVehicles"></div>
+</div> -->
+
+<!-- event binding  -->
+<!-- <button (click)="switchToggleState()">
+  {{ getToggleState() ? "Show vehicle details" : "Hide vehicle details" }}
+</button> -->
+
+<!-- directives -->
+<!-- ngIf and ngFor and ngSwitch(in app component) Structural directives -->
+<!-- ngClass and ngStyle   Attribute directives  -->
+<!-- <div *ngIf="vehicle.numberOfVehicles > 0">Vehicle List ...</div> -->
+<!-- coalescing operator-->
+<!-- {{ vehicle.numberOfVehicles ?? "Show vehicle details" }} -->
+<!-- chain operation -->
+<!-- <div *ngIf="true">
+  {{ vehicles[0]?.generation == undefined }} vehicle List ...
+</div> -->
+
+
+<!-- <div>
+  <div
+    *ngIf="this.numberOfVehicles == 0"
+    [ngStyle]="{ 'background-color': 'white' }"
+  >
+</div>
+</div> -->
+
+<!-- header component -->
+<!-- <lca-header></lca-header> -->
+<!-- <lca-header></lca-header>
+<lca-header></lca-header>
+<lca-header></lca-header> -->
+
+
+<!-- Component communication @Input decorator -->
+<!-- <div>
+  <button class="btn btn-primary" (click)="this.addVehicle()">
+    Add vehicle
   </button>
 </div>
+<lca-vehicle
+  [vehiclesList]="vehiclesList"
+  [title]="'hello'"
+  (selectedVehicle)="setSelectedVehicle($event)"
+></lca-vehicle>
+<div *ngIf="this.selectedVehicle">
+  {{ this.selectedVehicle | json }}
+</div> -->
